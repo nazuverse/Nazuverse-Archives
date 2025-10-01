@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #000; /* fallback color */
+      background: #000; /* fallback */
       font-family: "Georgia", serif;
       color: white;
       text-align: center;
@@ -25,7 +25,7 @@
       margin-bottom: 20px;
     }
 
-    /* Container for background + overlays */
+    /* Background */
     .bookshelf {
       position: relative;
       width: 100%;
@@ -34,16 +34,17 @@
       overflow: hidden;
     }
 
-    /* Transparent slot that matches a logbook */
+    /* Box over one logbook */
     .logbook-slot {
       position: absolute;
-      top: 200px;   /* adjust this */
-      left: 600px;  /* adjust this */
-      width: 100px; /* adjust size */
+      top: 220px;   /* adjust this */
+      left: 650px;  /* adjust this */
+      width: 100px; /* adjust to match book */
       height: 160px;
+      overflow: hidden; /* keeps strips inside */
     }
 
-    /* Neon strips inside the slot */
+    /* Neon strips */
     .neon-strip {
       position: absolute;
       left: 0;
@@ -57,11 +58,10 @@
       animation: glow 2s infinite alternate;
     }
 
-    /* Positioning two strips for the demo */
+    /* Strips inside this one logbook */
     .strip1 { top: 40px; }
     .strip2 { top: 100px; }
 
-    /* Neon pulsing animation */
     @keyframes glow {
       from { opacity: 0.5; }
       to { opacity: 1; }
@@ -72,8 +72,8 @@
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
-  <!-- Bookshelf background + glowing slot -->
   <div class="bookshelf">
+    <!-- Neon overlay on one logbook -->
     <div class="logbook-slot">
       <span class="neon-strip strip1"></span>
       <span class="neon-strip strip2"></span>
@@ -81,3 +81,4 @@
   </div>
 </body>
 </html>
+
