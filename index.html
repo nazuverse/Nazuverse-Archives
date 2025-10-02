@@ -3,19 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>Nazuverse Archives</title>
-  <link rel="stylesheet" href="styles.css"> <!-- your CSS goes here -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Georgia", serif;
+      color: white;
+      text-align: center;
+
+      /* 🔹 Put your background here so it stays fixed */
+      background: url("library%20bg.jpg") center/contain no-repeat fixed;
+      background-color: #000; /* fallback */
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 5px black;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 1.5em;
+      text-shadow: 1px 1px 3px black;
+      margin-bottom: 20px;
+    }
+
+    /* 🔹 Overlay container for glowing slots */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* keeps clicks going through if needed */
+    }
+
+    .logbook-slot {
+      position: absolute;
+      top: 220px;   /* adjust this */
+      left: 600px;  /* adjust this */
+      width: 100px; /* adjust to match book */
+      height: 160px;
+      overflow: hidden;
+    }
+
+    .neon-strip {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #0ff;
+      box-shadow:
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    .strip1 { top: 40px; }
+    .strip2 { top: 100px; }
+
+    @keyframes glow {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
-  <div class="archive-container">
-    <!-- base background -->
-    <img src="library bg.jpg" alt="Library Background" class="library-bg">
-
-    <!-- glowing overlay -->
-    <img src="Scroll Neon Light Strips.png" alt="Guidelines Overlay" class="guidelines">
+  <!-- 🔹 Overlay floats ABOVE the background -->
+  <div class="overlay">
+    <div class="logbook-slot">
+      <span class="neon-strip strip1"></span>
+      <span class="neon-strip strip2"></span>
+    </div>
   </div>
 </body>
 </html>
-
