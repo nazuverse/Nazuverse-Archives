@@ -1,70 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nazuverse Archives</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Georgia", serif;
-      color: white;
-      text-align: center;
-      background-color: #3a4959;
-    }
+<meta charset="UTF-8" />
+<title>Nazuverse Archives</title>
+<style>
+  :root{
+    /* change this to pink/purple/etc if you like */
+    --glow: #00eaff;
+  }
 
-    h1 {
-      font-size: 3em;
-      text-shadow: 2px 2px 5px black;
-      margin-top: 20px;
-    }
+  /* page chrome */
+  body{
+    margin:0;
+    background:#3a4959;
+    font-family: Georgia, serif;
+    color:#fff;
+    text-align:center;
+  }
+  h1{ margin:20px 0 0; font-size:3em; text-shadow:2px 2px 5px #000; }
+  p{  margin:8px 0 16px; font-size:1.25em; text-shadow:1px 1px 3px #000; }
 
-    p {
-      font-size: 1.5em;
-      text-shadow: 1px 1px 3px black;
-      margin-bottom: 20px;
-    }
+  /* ===== stacked image stage ===== */
+  .stage{
+    position:relative;
+    display:inline-block;         /* keeps it centered */
+    width:min(95vw, 1400px);      /* feel free to tweak max width */
+    /* height will auto from the first image’s aspect ratio */
+  }
 
-    /* Container keeps everything aligned */
-    .archive-container {
-      position: relative;
-      display: inline-block; /* centers it */
-    }
+  /* base bookshelf image */
+  .layer{
+    display:block;
+    width:100%;
+    height:auto;                  /* preserves aspect */
+  }
 
-    /* Base background (library shelves) */
-    .library-bg {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
+  /* guideline layer on top of bookshelf */
+  .glow{
+    position:absolute;
+    inset:0;                      /* top:0; right:0; bottom:0; left:0 */
+    pointer-events:none;          /* doesn’t block clicks */
+    filter:
+      drop-shadow(0 0 6px var(--glow))
+      drop-shadow(0 0 14px var(--glow));
+    animation:pulse 2s ease-in-out infinite alternate;
+  }
 
-    /* Overlay guidelines with glow effect */
-    .guidelines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("Scroll Neon Light Strips.png") no-repeat center center;
-      background-size: contain;
-      filter: drop-shadow(0 0 8px #0ff) drop-shadow(0 0 16px #0ff);
-      animation: glow 2s infinite alternate;
-      pointer-events: none; /* don’t block clicks */
-    }
-
-    @keyframes glow {
-      from { filter: drop-shadow(0 0 4px #0ff) drop-shadow(0 0 8px #0ff); }
-      to   { filter: drop-shadow(0 0 12px #0ff) drop-shadow(0 0 24px #0ff); }
-    }
-  </style>
+  @keyframes pulse{
+    from{ filter:
+      drop-shadow(0 0 4px var(--glow))
+      drop-shadow(0 0 10px var(--glow)); opacity:.95; }
+    to{   filter:
+      drop-shadow(0 0 10px var(--glow))
+      drop-shadow(0 0 22px var(--glow)); opacity:1; }
+  }
+</style>
 </head>
 <body>
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
-  <div class="archive-container">
-    <img src="library bg.jpg" alt="Library Background" class="library-bg">
-    <div class="guidelines"></div> <!-- 🔹 this is your transparent PNG glowing -->
+  <!-- 📌 Both images must have identical pixel dimensions -->
+  <div class="stage">
+    <!-- Background shelves -->
+    <img src="library bg.jpg" alt="Library" class="layer" />
+
+    <!-- Transparent guidelines PNG (drawn lines) with glow -->
+    <!-- IMPORTANT: filename & case must EXACTLY match your repo -->
+    <img src="Scroll Neon Light Strips.PNG" alt="Neon guidelines" class="layer glow" />
   </div>
 </body>
 </html>
