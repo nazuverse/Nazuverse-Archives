@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <title>Nazuverse Archives</title>
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Georgia", serif;
-  color: white;
-  text-align: center;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Georgia", serif;
+      color: white;
+      text-align: center;
 
-  background: #3a4959 url("library bg.jpg") no-repeat center center fixed;
-  background-size: contain;   /* shows full image */
-}
+      /* shelves background */
+      background: #3a4959 url("library bg.jpg") no-repeat center center fixed;
+      background-size: contain; /* show full bookshelf */
+    }
+
     h1 {
       font-size: 3em;
       text-shadow: 2px 2px 5px black;
@@ -26,29 +28,20 @@ body {
       margin-bottom: 20px;
     }
 
-    /* 🔹 Overlay container for glowing slots */
+    /* Overlay: temporary guide + neon strips */
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; /* keeps clicks going through if needed */
-    }
-
-    .logbook-slot {
-      position: absolute;
-      top: 220px;   /* adjust this */
-      left: 600px;  /* adjust this */
-      width: 100px; /* adjust to match book */
-      height: 160px;
-      overflow: hidden;
+      background: url("Scroll Neon Light Strips.png") no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
     }
 
     .neon-strip {
       position: absolute;
-      left: 0;
-      width: 100%;
       height: 6px;
       background: #0ff;
       box-shadow:
@@ -58,12 +51,29 @@ body {
       animation: glow 2s infinite alternate;
     }
 
-    .strip1 { top: 40px; }
-    .strip2 { top: 100px; }
-
     @keyframes glow {
       from { opacity: 0.5; }
       to { opacity: 1; }
+    }
+
+    /* Example strips */
+    .strip-horizontal {
+      top: 300px; left: 500px;
+      width: 120px;
+    }
+
+    .strip-vertical {
+      top: 200px; left: 800px;
+      width: 120px;
+      transform: rotate(90deg);
+      transform-origin: left top;
+    }
+
+    .strip-diagonal {
+      top: 400px; left: 600px;
+      width: 120px;
+      transform: rotate(-30deg);
+      transform-origin: left top;
     }
   </style>
 </head>
@@ -71,13 +81,11 @@ body {
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
-  <!-- 🔹 Overlay floats ABOVE the background -->
   <div class="overlay">
-    <div class="logbook-slot">
-      <span class="neon-strip strip1"></span>
-      <span class="neon-strip strip2"></span>
-    </div>
+    <!-- Example neon strips -->
+    <div class="neon-strip strip-horizontal"></div>
+    <div class="neon-strip strip-vertical"></div>
+    <div class="neon-strip strip-diagonal"></div>
   </div>
 </body>
 </html>
-
