@@ -11,9 +11,9 @@
       color: white;
       text-align: center;
 
-      /* shelves background */
+      /* 🔹 main shelves background */
       background: #3a4959 url("library bg.jpg") no-repeat center center fixed;
-      background-size: contain; /* show full bookshelf */
+      background-size: contain;
     }
 
     h1 {
@@ -28,20 +28,34 @@
       margin-bottom: 20px;
     }
 
-    /* Overlay: temporary guide + neon strips */
+    /* 🔹 Overlay sits on top of shelves */
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      pointer-events: none;
+
+      /* 🔹 add your guidelines PNG */
       background: url("Scroll Neon Light Strips.png") no-repeat center center;
       background-size: contain;
-      pointer-events: none;
+    }
+
+    /* 🔹 Neon strips positioned relative to overlay */
+    .logbook-slot {
+      position: absolute;
+      top: 220px;   /* adjust */
+      left: 600px;  /* adjust */
+      width: 100px; /* adjust */
+      height: 160px;
+      overflow: hidden;
     }
 
     .neon-strip {
       position: absolute;
+      left: 0;
+      width: 100%;
       height: 6px;
       background: #0ff;
       box-shadow:
@@ -51,29 +65,12 @@
       animation: glow 2s infinite alternate;
     }
 
+    .strip1 { top: 40px; }
+    .strip2 { top: 100px; }
+
     @keyframes glow {
       from { opacity: 0.5; }
       to { opacity: 1; }
-    }
-
-    /* Example strips */
-    .strip-horizontal {
-      top: 300px; left: 500px;
-      width: 120px;
-    }
-
-    .strip-vertical {
-      top: 200px; left: 800px;
-      width: 120px;
-      transform: rotate(90deg);
-      transform-origin: left top;
-    }
-
-    .strip-diagonal {
-      top: 400px; left: 600px;
-      width: 120px;
-      transform: rotate(-30deg);
-      transform-origin: left top;
     }
   </style>
 </head>
@@ -81,11 +78,13 @@
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
+  <!-- 🔹 Overlay floats above the bookshelf -->
   <div class="overlay">
-    <!-- Example neon strips -->
-    <div class="neon-strip strip-horizontal"></div>
-    <div class="neon-strip strip-vertical"></div>
-    <div class="neon-strip strip-diagonal"></div>
+    <!-- Example glowing logbook slot -->
+    <div class="logbook-slot">
+      <span class="neon-strip strip1"></span>
+      <span class="neon-strip strip2"></span>
+    </div>
   </div>
 </body>
 </html>
