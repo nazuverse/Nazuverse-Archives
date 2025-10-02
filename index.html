@@ -3,68 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Nazuverse Archives</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Georgia", serif;
-      color: white;
-      text-align: center;
-      background-color: #3a4959;
-    }
-
-    h1 {
-      font-size: 3em;
-      text-shadow: 2px 2px 5px black;
-      margin-top: 20px;
-    }
-
-    p {
-      font-size: 1.5em;
-      text-shadow: 1px 1px 3px black;
-      margin-bottom: 20px;
-    }
-
-    /* Container keeps both layers perfectly aligned */
-    .archive-container {
-      position: relative;
-      display: inline-block; /* centers it */
-    }
-
-    /* Base bookshelf */
-    .library-bg {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Transparent guideline PNG (stacked on top) */
-    .guidelines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 14px #0ff);
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { filter: drop-shadow(0 0 4px #0ff) drop-shadow(0 0 8px #0ff); opacity: .9; }
-      to   { filter: drop-shadow(0 0 10px #0ff) drop-shadow(0 0 22px #0ff); opacity: 1; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- your CSS goes here -->
 </head>
 <body>
   <h1>Welcome to Nazuverse Archives</h1>
   <p>You have entered the World of Cognition.</p>
 
   <div class="archive-container">
-    <!-- base shelves -->
+    <!-- base background -->
     <img src="library bg.jpg" alt="Library Background" class="library-bg">
-    <!-- transparent guidelines -->
-    <img src="Scroll Neon Light Strips.png" alt="Guidelines" class="guidelines">
+
+    <!-- glowing overlay -->
+    <img src="Scroll Neon Light Strips.png" alt="Guidelines Overlay" class="guidelines">
   </div>
 </body>
 </html>
+
