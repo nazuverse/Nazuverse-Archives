@@ -1,11 +1,10 @@
-/* ===== Global styles ===== */
 body {
   margin: 0;
   padding: 0;
   font-family: "Georgia", serif;
   color: white;
   text-align: center;
-  background-color: #3a4959; /* fallback color */
+  background-color: #3a4959; /* fallback */
 }
 
 h1 {
@@ -20,33 +19,38 @@ p {
   margin-bottom: 20px;
 }
 
-/* ===== Image container ===== */
+/* Stack images */
 .archive-container {
   position: relative;
-  display: inline-block; /* keeps the images centered */
+  display: inline-block; /* keeps images centered */
 }
 
-/* Base bookshelf background */
 .library-bg {
   display: block;
-  max-width: 100%; /* scales with screen */
+  max-width: 100%;
   height: auto;
 }
 
-/* Guidelines overlay (transparent PNG on top) */
 .guidelines {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
-  pointer-events: none; /* so clicks/taps pass through */
-  filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 14px #0ff);
-  animation: glow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+
+  /* 🔹 Neon glow applied directly to your PNG */
+  filter: drop-shadow(0 0 6px #ff4de3) drop-shadow(0 0 14px #ff4de3);
+  animation: glow 2s infinite alternate;
 }
 
-/* Neon pulsing animation */
 @keyframes glow {
-  from { filter: drop-shadow(0 0 4px #0ff) drop-shadow(0 0 8px #0ff); opacity: 0.9; }
-  to   { filter: drop-shadow(0 0 12px #0ff) drop-shadow(0 0 24px #0ff); opacity: 1; }
+  from {
+    filter: drop-shadow(0 0 4px #ff4de3) drop-shadow(0 0 8px #ff4de3);
+    opacity: 0.9;
+  }
+  to {
+    filter: drop-shadow(0 0 12px #ff4de3) drop-shadow(0 0 24px #ff4de3);
+    opacity: 1;
+  }
 }
