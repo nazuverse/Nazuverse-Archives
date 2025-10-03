@@ -1,0 +1,52 @@
+/* ===== Global styles ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+  color: white;
+  text-align: center;
+  background-color: #3a4959; /* fallback color */
+}
+
+h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 5px black;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 3px black;
+  margin-bottom: 20px;
+}
+
+/* ===== Image container ===== */
+.archive-container {
+  position: relative;
+  display: inline-block; /* keeps the images centered */
+}
+
+/* Base bookshelf background */
+.library-bg {
+  display: block;
+  max-width: 100%; /* scales with screen */
+  height: auto;
+}
+
+/* Guidelines overlay (transparent PNG on top) */
+.guidelines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none; /* so clicks/taps pass through */
+  filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 14px #0ff);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Neon pulsing animation */
+@keyframes glow {
+  from { filter: drop-shadow(0 0 4px #0ff) drop-shadow(0 0 8px #0ff); opacity: 0.9; }
+  to   { filter: drop-shadow(0 0 12px #0ff) drop-shadow(0 0 24px #0ff); opacity: 1; }
+}
