@@ -36,21 +36,15 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  pointer-events: none;
-
-  /* 🔹 Neon glow applied directly to your PNG */
-  filter: drop-shadow(0 0 6px #ff4de3) drop-shadow(0 0 14px #ff4de3);
+  height: 100%;
+  background: url("Scroll Neon Light Strips.png") no-repeat center center;
+  background-size: contain;
+  filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 12px #0ff);
   animation: glow 2s infinite alternate;
+  pointer-events: none;
 }
 
 @keyframes glow {
-  from {
-    filter: drop-shadow(0 0 4px #ff4de3) drop-shadow(0 0 8px #ff4de3);
-    opacity: 0.9;
-  }
-  to {
-    filter: drop-shadow(0 0 12px #ff4de3) drop-shadow(0 0 24px #ff4de3);
-    opacity: 1;
-  }
+  from { filter: drop-shadow(0 0 4px #0ff) drop-shadow(0 0 8px #0ff); }
+  to   { filter: drop-shadow(0 0 12px #0ff) drop-shadow(0 0 24px #0ff); }
 }
